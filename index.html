@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+
+    <!-- Le puse otros nombres a los archivos (no hate) -->
+    <link rel="stylesheet" href="css.css">
+    <script src="js.js" defer></script>
+</head>
+    <body>
+
+        <div id="vista-registro" style="display:block;">
+          <div class="contenedor-principal">
+            <form id="formulario-registro" novalidate>
+                
+
+                <div class="datos de entrada">
+                    <label for="nombreusuario">Nombre de usuario</label>
+                    <input type="text" id="nombreusuario" placeholder="Ej:dev_master" required minlength="4"> <!-- id debe coincidir con JS -->
+                    <span class="mensaje-error">El usurario debe tener por lo menos 4 caracteres</span>
+                 </div>
+                
+                <div class="datos-entrada">
+                    <label for="correo">Correo electronico</label>
+                    <input type="email" id="correo" placeholder="tucorreo.com" required>
+                    <span class="mensaje-error">Ingresa un correo que sea valido</span>
+                </div> 
+
+                <div class="datos-entrada">
+                    <label for="contraseña">Contraseña</label>
+                    <input type="password" id="contraseña" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">
+                    <span class="mensaje-error">Minimo 8 caracteres, incluye letras y numeros</span>
+                    <div class="nivel-seguridad" id="nivelseguridad"></div>
+                </div>
+<!-- es el nuevo campo de texto donde está la segunda contraseña !!!! LO DE ABAjo -->
+                 <div class="datos-entrada">
+                    <label for="contraseña">Confitmar contraseña</label>
+                    <input type="password" id="contraseña2" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">
+                    <span class="mensaje-error">Minimo 8 caracteres, incluye letras y numeros</span>
+                    <div class="nivel-seguridad" id="nivelseguridad2"></div>
+                </div>
+<!-- los mensajes que te dicen que esta bien la contraseña ( las dos pues) aaaa-->
+
+                <div id="msg">
+
+
+                </div>
+
+
+                <div id="error" class="mensajeError" role="alert">
+
+                 
+                </div>
+
+                <div id="ok" class="mensajeBueno ocultar" role="alert">
+
+                  Las contraseñas coinciden.
+
+
+                </div>
+
+                <button type="submit" id="botonenviar" class="btn btn-primary">Registrarme</button>
+                 <div id="login">
+               <a href="#" onclick="mostrarLogin()">Log in</a>
+               </div>
+            
+                
+            </form>
+        </div>
+        </div> 
+            
+      <div id="vista-login" style="display:none;">
+        <div class="contenedor-principal">
+            <h2>Iniciar sesión</h2>
+            <form id="login-form" onsubmit="checkLogin(event)">
+                <div class="datos-entrada">
+                    <label for="userName">Nombre de usuario</label>
+                    <input type="text" id="userName" required placeholder="Ej: dev_master">
+                </div>
+
+                <div class="datos-entrada">
+                    <label for="userPw">Contraseña</label>
+                    <input type="password" id="userPw" required placeholder="Tu contraseña">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Entrar</button>
+            </form>
+
+            <div id="Regístrate">
+                <a href="#" onclick="mostrarRegistro()">Regístrate</a>
+            </div>
+        </div>
+        </div>
+
+    </body>
+</html>
